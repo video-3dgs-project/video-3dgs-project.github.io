@@ -125,10 +125,11 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce Video-3DGS, an innovative approach tailored for editing dynamic monocular videos by reconstructing them with 3DGS.
+            We introduce Video-3DGS, an innovative two-stage approach tailored for editing dynamic monocular videos by reconstructing them with 3DGS.
           </p>
           <p>
-            Video-3DGS is empowered by the proposed MC-COLMAP, a modified version of
+            Video-3DGS (1st stage) aims to reconstruct the videos with 3DGS.
+            It is empowered by the proposed MC-COLMAP, a modified version of
             COLMAP, applied to videos in a Masked and Clipped manner. We employ an open-vocabulary video segmenter to extract segmentation masks
             for foreground moving objects and divide long
             video sequences into shorter clips to minimize
@@ -145,14 +146,13 @@
             faithfully represent the video frames.
           </p>
           <p>
-            To demonstrate the efficacy of Video-3DGS, we conduct
-            extensive experiments across two related tasks:
-            Video Reconstruction and Video Editing. Video-3DGS significantly improves video reconstruction
-            quality (+7 PSNR increase) and training efficiency
-            (×4 times faster) over the state-of-art method
-            Deformable-3DGS on DAVIS dataset. Moreover,
-            it enhances video editing by ensuring temporal
-            consistency across 58 dynamic monocular videos.
+            Video-3DGS (2nd stage) focuses on seamlessly integrating a pre-optimized Video-3DGS into existing
+            zero-shot video editors. The primary advantage of using a pre-optimized Video-3DGS lies in its ability
+            to apply structured constraints of 3D Gaussians across multiple video frames. More specifically, we
+            maintain the structural components of Frg-3DGS and Bkg-3DGS in a fixed state while selectively
+            fine-tuning the color parameters, such as spherical harmonic coefficients, alongside a 2D learnable
+            parameter map. This fine-tuning process is designed to capture and replicate the style of the initially
+            edited video frames.
           </p>
         </div>
       </div>
@@ -189,6 +189,7 @@
           <h2 class="title is-3">Video reconstruction</h2>
           <p>
             Video-3DGS for reconstructing videos
+            (Clik for <a href="https://anonymous-video-3dgs-additional-recon.github.io/">Additional comparison with Deformable-3DGS)
           </p>
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/horsejump.mp4"
@@ -235,7 +236,7 @@
               Video-3DGS for editing videos
             </p>
             <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/edit_trucks_text2vid.mp4"
+              <source src="./static/videos/edit_audi_text2vid.mp4"
                       type="video/mp4">
             </video>
             <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
@@ -296,9 +297,15 @@
                 </a>
             </span>
             <span class="link-block">
-              <a href="https://anonymous-video-3dgs-recon-edit.github.io/"
+              <a href="https://anonymous-video-3dgs-2d-learnable-mask.github.io/"
                  class="external-link button is-normal is-dark">
-                <span>Relationship between Reconstruction and Editing</span>
+                <span>Visualization on 2D Learnable Masks</span>
+                </a>
+            </span>
+            <span class="link-block">
+              <a href="https://anonymous-video-3dgs-re.github.io/"
+                 class="external-link button is-normal is-dark">
+                <span>Qualitative Results of Video-3DGS with Recursive and Ensembled refinement</span>
                 </a>
             </span>
             <span class="link-block">
