@@ -352,17 +352,27 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video Editing with random camera movement</h2>
-        <div class="publication-video">
-<!--           <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0" -->
-<!--                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/video-3dgs_solution_camera_move.mp4"
-                    type="video/mp4">
-          </video>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Discussin & Limitation</h2>
+          <div class="publication-video">
+            <p>
+              Unlike other conventional neural representation papers, our work does not explore the task of novel view synthesis.
+              Instead, our method focuses on video reconstruction and editing by encoding and fitting videos with 3DGS.
+              Nevertheless, we conducted a toy demo showing that Video-3DGS keep enhancing the temporal consistency and
+              maintaining editing results during camera movement as below video.
+            </p>
+            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/video-3dgs_solution_camera_move.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              We anticipate that our Video-3DGS will also serve as a fundamental framework for 4D novel view synthesis in future research. 
+            </p>
+          </div>
         </div>
       </div>
     </div>
